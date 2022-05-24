@@ -1,2 +1,2 @@
 # openwrt-packages
-My own OpenWRT packages
+Non standard OpenWRT packages
