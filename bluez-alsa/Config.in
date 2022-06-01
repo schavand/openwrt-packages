@@ -1,0 +1,11 @@
+config BLUEALSA_A2DP_SOURCE
+	bool "Auto start a2dp source profile"
+	help
+		This option allows the a2dp source profile to be executed on boot
+	default y
+
+config BLUEALSA_A2DP_SINK
+	bool "Auto start a2dp sink profile"
+	help
+		This option allows the a2dp sink profile to be executed on boot
+	default y
