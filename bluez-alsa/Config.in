@@ -1,3 +1,6 @@
+menu "Configuration"
+	depends on PACKAGE_bluez-alsa
+
 config BLUEALSA_A2DP_SOURCE
 	bool "Auto start a2dp source profile"
 	help
