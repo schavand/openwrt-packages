@@ -38,6 +38,10 @@ define Package/bluez-alsa
   URL:=https://github.com/schavand/bluez-alsa
 endef
 
+define Package/bluez-alsa/config
+  source "$(SOURCE)/Config.in"
+endef
+
 define Package/bluez-alsa/description
   ALSA plugin supporting Bluetooth audio
 endef
