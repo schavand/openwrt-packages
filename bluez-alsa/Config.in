@@ -4,11 +4,43 @@ menu "Configuration"
 config BLUEALSA_A2DP_SOURCE
 	bool "Auto start a2dp source profile"
 	help
-		This option allows the a2dp source profile to be executed on boot
+		This option allows the Advanced Audio Source (streaming audio to connected device) profile to be executed on boot
 	default y
 
 config BLUEALSA_A2DP_SINK
 	bool "Auto start a2dp sink profile"
 	help
-		This option allows the a2dp sink profile to be executed on boot
+		This option allows the Advanced Audio Sink (receiving audio from connected device) profile to be executed on boot
 	default y
+
+config BLUEALSA_HFP_OFONO
+	bool "Auto start hfp-ofono profile"
+	help
+		This option allows the Hands-Free AG/HF handled by oFono profile to be executed on boot
+	default n
+
+config BLUEALSA_HFP_AG
+	bool "Auto start hfp-ag profile"
+	help
+		This option allows the Hands-Free Audio Gateway profile to be executed on boot
+	default n
+
+config BLUEALSA_HFP_HF
+	bool "Auto start hfp-hf profile"
+	help
+		This option allows the Hands-Free profile to be executed on boot
+	default n
+
+config BLUEALSA_HSP_AG
+	bool "Auto start hsp-ag profile"
+	help
+		This option allows the Headset Audio Gateway profile to be executed on boot
+	default n
+
+config BLUEALSA_HSP_HS
+	bool "Auto start hsp-hs profile"
+	help
+		This option allows the Headset profile to be executed on boot
+	default n
+
+endmenu

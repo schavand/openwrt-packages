@@ -58,6 +58,27 @@ define Package/bluez-alsa/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/utils/aplay/bluealsa-aplay $(1)/usr/bin/
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/bluealsa.init $(1)/etc/init.d/bluealsa
+ifeq ($(CONFIG_BLUEALSA_A2DP_SOURCE),y)
+	$(SED) 's/-i hci0/-i hci0 -p a2dp-source/g' $(1)/etc/init.d/bluealsa
+endif
+ifeq ($(CONFIG_BLUEALSA_A2DP_SINK),y)
+	$(SED) 's/-i hci0/-i hci0 -p a2dp-sink/g' $(1)/etc/init.d/bluealsa
+endif
+ifeq ($(BLUEALSA_HFP_OFONO),y)
+	$(SED) 's/-i hci0/-i hci0 -p hfp-ofono/g' $(1)/etc/init.d/bluealsa
+endif
+ifeq ($(BLUEALSA_HFP_AG),y)
+	$(SED) 's/-i hci0/-i hci0 -p hfp-ag/g' $(1)/etc/init.d/bluealsa
+endif
+ifeq ($(BLUEALSA_HFP_HF),y)
+	$(SED) 's/-i hci0/-i hci0 -p hfp-hf/g' $(1)/etc/init.d/bluealsa
+endif
+ifeq ($(BLUEALSA_HSP_AG),y)
+	$(SED) 's/-i hci0/-i hci0 -p hsp-ag/g' $(1)/etc/init.d/bluealsa
+endif
+ifeq ($(BLUEALSA_HSP_HS),y)
+	$(SED) 's/-i hci0/-i hci0 -p hsp-hs/g' $(1)/etc/init.d/bluealsa
+endif
 	$(INSTALL_DIR) $(1)/etc/dbus-1/system.d/
 	$(CP) $(PKG_BUILD_DIR)/src/bluealsa.conf $(1)/etc/dbus-1/system.d/
 endef
